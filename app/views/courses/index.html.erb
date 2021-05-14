@@ -1,0 +1,13 @@
+<%if @courses.empty? %>
+  <%= "Nenhum curso disponível" %>
+<% end %>
+
+<% @courses.each do |course|%>
+  <ul>
+  <li> <%= link_to course.name, course%> </li>
+  <li> <%= course.description%> </li>
+  <li> <%= course.price_to_real%> </li>
+  </ul>
+<%end%>
+
+<%= link_to "Voltar", root_path%>
