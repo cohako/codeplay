@@ -1,6 +1,6 @@
-    <% course.errors.each do |error|%>
-      <%= error.message%>
-    <% end %>
+<% course.errors.each do |error|%>
+  <%= error.message%>
+<% end %>
 
 <%= form_for @course do |f| %>
   <%= f.label :name, 'Nome' %>

@@ -3,7 +3,7 @@
   <li> <%= @course.name %> </li>
   <li> <%= @course.description %> </li>
   <li> <%= @course.code %> </li>
-  <li> <%= @course.price_to_real%> </li>
+  <li> <%= number_to_currency_brl @course.price%> </li>
   <li> <%= @course.date_to_metric%>
 </ul>
 
