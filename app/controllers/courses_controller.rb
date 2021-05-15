@@ -10,10 +10,14 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
   end
+  
   def create
-    p course_params
     @course = Course.new(course_params)
-    @course.save
+    if @course.save
+      redirect_to @course
+    else
+      render :new
+    end
   end
 
   private

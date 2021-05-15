@@ -2,6 +2,8 @@
   <%= "Nenhum curso disponível" %>
 <% end %>
 
+<%= link_to 'Registrar um Curso', new_course_path%>
+
 <% @courses.each do |course|%>
   <ul>
   <li> <%= link_to course.name, course%> </li>
