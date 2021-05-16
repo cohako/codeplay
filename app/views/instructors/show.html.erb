@@ -1,0 +1,7 @@
+<%= @instructor.name %>
+<%= @instructor.email%>
+<%= @instructor.bio%>
+
+<p> <%= link_to 'Editar', edit_instructor_path %></p>
+<p> <%= link_to 'Apagar', instructor_path, method: :delete %>
+<p> <%= link_to 'Voltar', instructors_path %>

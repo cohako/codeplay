@@ -4,7 +4,9 @@
   <li> <%= @course.description %> </li>
   <li> <%= @course.code %> </li>
   <li> <%= number_to_currency_brl @course.price%> </li>
-  <li> <%= @course.date_to_metric%>
+  <li> <%= @course.date_to_metric%> </li>
 </ul>
 
-<%= link_to "Voltar", courses_path%>
+<p> <%= link_to 'Editar', edit_course_path%> </p>
+<p> <%= link_to 'Apagar', course_path, method: :delete %>
+<p> <%= link_to "Voltar", courses_path%> </p>

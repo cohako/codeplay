@@ -1,0 +1,13 @@
+<% @instructor.errors.each do |error|%>
+  <%= error.message%>
+<% end %>
+
+<%= form_with model: @instructor do |f| %>
+  <li> <%= f.label :name,'Nome' %> </li>
+  <li> <%= f.text_field :name %> </li>
+  <li> <%= f.label :email, 'Email'%> </li>
+  <li> <%= f.email_field :email %></li>
+  <li> <%= f.label :bio, 'Descrição' %></li>
+  <li> <%= f.text_area :bio %> </li>
+  <li> <%= f.submit 'Cadastrar Professor'%> </li>
+<% end %>

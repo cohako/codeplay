@@ -1,5 +1,12 @@
+<% if @instructors.empty?%>
+  <%= 'Nenhum professor disponível'%>
+<% end %>
+
 <% @instructors.each do |instructor| %>
-  <li> <%= instructor.name %> <li>
+  <li> <%= link_to instructor.name, instructor%> <li>
   <li> <%= instructor.email %> </li>
   <li> <%= instructor.bio%> </li>
 <% end %>
+
+<p> <%= link_to 'Cadastrar novo professor', new_instructor_path %></p>
+<P> <%= link_to 'Voltar', root_path%> </p>
