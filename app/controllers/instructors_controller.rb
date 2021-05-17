@@ -35,6 +35,7 @@ class InstructorsController < ApplicationController
 
   def destroy
     @instructor = Instructor.find(params[:id])
+    @instructor.profile_picture.purge
     @instructor.destroy
 
     redirect_to instructors_path
@@ -43,7 +44,7 @@ class InstructorsController < ApplicationController
   private
 
   def instructor_params
-    params.require(:instructor).permit(:name, :email, :bio)
+    params.require(:instructor).permit(:name, :email, :bio, :profile_picture)
   end
 
 end

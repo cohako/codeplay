@@ -9,5 +9,7 @@
   <li> <%= f.email_field :email %></li>
   <li> <%= f.label :bio, 'Descrição' %></li>
   <li> <%= f.text_area :bio %> </li>
-  <li> <%= f.submit 'Cadastrar Professor'%> </li>
+  <li> <%= f.label :profile_picture, 'Foto de perfil'%>
+  <li> <%= f.file_field :profile_picture%>
+  <li> <%= f.submit 'Enviar'%> </li>
 <% end %>
