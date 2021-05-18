@@ -1,4 +1,4 @@
-
+<h1> Curso </h1>
 <ul>
   <li> <%= @course.name %> </li>
   <li> <%= @course.description %> </li>
@@ -7,6 +7,6 @@
   <li> <%= @course.date_to_metric%> </li>
 </ul>
 
-<p> <%= link_to 'Editar', edit_course_path%> </p>
-<p> <%= link_to 'Apagar', course_path, method: :delete %>
+<p> <%= link_to 'Editar', edit_course_path(@course)%> </p>
+<p> <%= link_to 'Apagar', course_path(@course), method: :delete %>
 <p> <%= link_to "Voltar", courses_path%> </p>

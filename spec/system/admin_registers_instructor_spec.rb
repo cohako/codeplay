@@ -19,7 +19,7 @@ describe 'Admin registers instructor' do
     fill_in 'Nome', with: 'Railson'
     fill_in 'Email', with: 'railson@teste.com'
     fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
-    attach_file 'Foto de perfil', Rails.root.join('tmp/storage/test.jpg')
+    attach_file 'Foto de perfil', Rails.root.join('spec/fixtures/test.jpg')
     click_on 'Enviar'
     
 
@@ -48,7 +48,7 @@ describe 'Admin registers instructor' do
   it 'and email must be uniq' do
 
     Instructor.create!(name: 'Ruby', bio: 'Um curso de Ruby',
-      email: 'r@mail.com')
+                      email: 'r@mail.com')
 
     visit root_path
     click_on 'Professores'

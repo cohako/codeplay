@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Admin erase course' do
   it 'successfully' do
     Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
-      code: 'RAILSFOREST', price: 10,
-      enrollment_deadline: '10/11/2050')
+                  code: 'RAILSFOREST', price: 10,
+                  enrollment_deadline: '10/11/2050')
 
     visit root_path
     click_on 'Cursos'

@@ -27,6 +27,7 @@ class InstructorsController < ApplicationController
   def update
     @instructor = Instructor.find(params[:id])
     if @instructor.update(instructor_params)
+      flash[:notice] = "Atualizado com sucesso"
       redirect_to @instructor
     else
       render :edit

@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+# TODO: Validar data não pode ser menor que hoje
 
   validates_presence_of :name, :code, 
                         :price, 
