@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   before_action :set_course, only: %i[show edit update destroy]
+  before_action :set_instructors, only: %i[show new edit create]
 
   def index
     @courses = Course.all
@@ -44,7 +45,17 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def set_instructors
+    @instructors = Instructor.all
+  end
+
   def course_params
-    params.require(:course).permit(:name, :description, :code, :price, :enrollment_deadline)
+    params.require(:course)
+          .permit(:name, 
+                  :description, 
+                  :code, 
+                  :price, 
+                  :enrollment_deadline, 
+                  :instructor_id)
   end
 end

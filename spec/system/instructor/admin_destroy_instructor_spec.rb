@@ -6,7 +6,7 @@ describe 'Admin erase instructor' do
     instructor = Instructor.create!(name: 'Capybarason', 
                                     email: 'capybara@test.com', 
                                     bio: 'Eu soum um agente de teste')
-    instructor.profile_picture.attach(io: File.open('spec/fixtures/test.jpg'), 
+    instructor.profile_picture.attach(io: File.open('spec/fixture/test.jpg'), 
                                       filename: 'test.jpg')
 
     visit root_path

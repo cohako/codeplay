@@ -19,7 +19,7 @@ describe 'Admin registers instructor' do
     fill_in 'Nome', with: 'Railson'
     fill_in 'Email', with: 'railson@teste.com'
     fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
-    attach_file 'Foto de perfil', Rails.root.join('spec/fixtures/test.jpg')
+    attach_file 'Foto de perfil', Rails.root.join('spec/fixture/test.jpg')
     click_on 'Enviar'
     
 

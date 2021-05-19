@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe Course do
   context 'validation' do
+    before(:each) do
+      Instructor.create!(name: 'Rubyson', 
+                        email: 'ruby@teste.com', 
+                        bio: 'Sou uns instrutor que está aprendendo')
+    end
     it 'attributes cannot be blank' do
       course = Course.new
 
@@ -15,7 +20,7 @@ describe Course do
     it 'code must be uniq' do
       Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                     code: 'RUBYBASIC', price: 10,
-                    enrollment_deadline: '22/12/2033')
+                    enrollment_deadline: '22/12/2033', instructor_id: 1)
       course = Course.new(code: 'RUBYBASIC')
 
       course.valid?

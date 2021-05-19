@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe 'Admin registers courses' do
+  before(:each) do
+    Instructor.create!(name: 'Rubyson', 
+                      email: 'ruby@teste.com', 
+                      bio: 'Sou uns instrutor que está aprendendo')
+  end
+
   it 'from index page' do
     visit root_path
     click_on 'Cursos'
@@ -15,6 +21,7 @@ describe 'Admin registers courses' do
     click_on 'Registrar um Curso'
 
     fill_in 'Nome', with: 'Ruby on Rails'
+    select 'Rubyson', from: 'Professor'
     fill_in 'Descrição', with: 'Um curso de Ruby on Rails'
     fill_in 'Código', with: 'RUBYONRAILS'
     fill_in 'Preço', with: '30'
@@ -32,7 +39,7 @@ describe 'Admin registers courses' do
   it 'and attributes cannot be blank' do
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'
@@ -50,7 +57,7 @@ describe 'Admin registers courses' do
   it 'and code must be unique' do
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'

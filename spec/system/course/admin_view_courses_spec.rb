@@ -1,14 +1,21 @@
 require 'rails_helper'
 
 describe 'Admin view courses' do
+  before(:each) do
+    Instructor.create!(name: 'Rubyson', 
+                      email: 'ruby@teste.com', 
+                      bio: 'Sou uns instrutor que está aprendendo')
+  end
+  
   it 'successfully' do
+
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
     Course.create!(name: 'Ruby on Rails',
                    description: 'Um curso de Ruby on Rails',
                    code: 'RUBYONRAILS', price: 20,
-                   enrollment_deadline: '20/12/2033')
+                   enrollment_deadline: '20/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'
@@ -24,11 +31,11 @@ describe 'Admin view courses' do
   it 'and view details' do
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
     Course.create!(name: 'Ruby on Rails',
                    description: 'Um curso de Ruby on Rails',
                    code: 'RUBYONRAILS', price: 20,
-                   enrollment_deadline: '20/12/2033')
+                   enrollment_deadline: '20/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'
@@ -51,7 +58,7 @@ describe 'Admin view courses' do
   it 'and return to home page' do
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'
@@ -63,7 +70,7 @@ describe 'Admin view courses' do
   it 'and return to promotions page' do
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor_id: 1)
 
     visit root_path
     click_on 'Cursos'
