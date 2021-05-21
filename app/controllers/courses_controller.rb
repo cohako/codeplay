@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   before_action :set_course, only: %i[show edit update destroy]
-  before_action :set_instructors, only: %i[show new edit create]
+  before_action :set_instructors, only: %i[show new edit]
 
   def index
     @courses = Course.all
@@ -19,6 +19,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course
     else
+      set_instructors
       render :new
     end
   end
@@ -30,6 +31,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to @course, notice: 'Atualizado com sucesso'
     else
+      set_instructors
       render :edit
     end
   end

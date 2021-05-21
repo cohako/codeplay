@@ -1,21 +1,19 @@
 require 'rails_helper'
 
 describe 'Admin view courses' do
-  before(:each) do
-    Instructor.create!(name: 'Rubyson', 
-                      email: 'ruby@teste.com', 
-                      bio: 'Sou uns instrutor que está aprendendo')
-  end
-  
+
   it 'successfully' do
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
 
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
     Course.create!(name: 'Ruby on Rails',
                    description: 'Um curso de Ruby on Rails',
                    code: 'RUBYONRAILS', price: 20,
-                   enrollment_deadline: '20/12/2033', instructor_id: 1)
+                   enrollment_deadline: '20/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'
@@ -29,13 +27,17 @@ describe 'Admin view courses' do
   end
 
   it 'and view details' do
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
+
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
     Course.create!(name: 'Ruby on Rails',
                    description: 'Um curso de Ruby on Rails',
                    code: 'RUBYONRAILS', price: 20,
-                   enrollment_deadline: '20/12/2033', instructor_id: 1)
+                   enrollment_deadline: '20/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'
@@ -44,6 +46,7 @@ describe 'Admin view courses' do
     expect(page).to have_content('Ruby on Rails')
     expect(page).to have_content('Um curso de Ruby on Rails')
     expect(page).to have_content('RUBYONRAILS')
+    expect(page).to have_content('Rubyson')
     expect(page).to have_content('R$ 20,00')
     expect(page).to have_content('20/12/2033')
   end
@@ -56,9 +59,12 @@ describe 'Admin view courses' do
   end
 
   it 'and return to home page' do
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'
@@ -68,9 +74,14 @@ describe 'Admin view courses' do
   end
 
   it 'and return to promotions page' do
+
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
+
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'

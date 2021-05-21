@@ -1,17 +1,11 @@
 class Course < ApplicationRecord
 # TODO: Validar data não pode ser menor que hoje
-  has_one :instructor
+  belongs_to :instructor
   
   validates_presence_of :name, :code, 
-                        :price, 
-                        message: 'não pode ficar em branco'
-  
+                        :price
 
-  validates_uniqueness_of :code, 
-                          message: 'já está em uso'
+  validates_uniqueness_of :code
 
-  def date_to_metric
-    enrollment_deadline.strftime('%d/%m/%Y')
-  end
   
 end

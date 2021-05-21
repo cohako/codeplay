@@ -1,16 +1,13 @@
 require 'rails_helper'
 
 describe 'Admin edit course' do
-  before(:each) do
-    Instructor.create!(name: 'Rubyson', 
-                      email: 'ruby@teste.com', 
-                      bio: 'Sou uns instrutor que está aprendendo')
-    end
   it 'successfully' do
-
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
                   code: 'RAILSFOREST', price: 10,
-                  enrollment_deadline: '10/11/2050', instructor_id: 1)
+                  enrollment_deadline: '10/11/2050', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'

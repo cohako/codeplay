@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'Admin erase instructor' do
   it 'successfully' do
-    
     instructor = Instructor.create!(name: 'Capybarason', 
                                     email: 'capybara@test.com', 
                                     bio: 'Eu soum um agente de teste')

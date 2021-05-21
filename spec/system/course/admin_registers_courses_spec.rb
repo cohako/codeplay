@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 describe 'Admin registers courses' do
-  before(:each) do
-    Instructor.create!(name: 'Rubyson', 
-                      email: 'ruby@teste.com', 
-                      bio: 'Sou uns instrutor que está aprendendo')
-  end
-
   it 'from index page' do
     visit root_path
     click_on 'Cursos'
@@ -16,6 +10,10 @@ describe 'Admin registers courses' do
   end
 
   it 'successfully' do
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
+
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -32,20 +30,26 @@ describe 'Admin registers courses' do
     expect(page).to have_content('Ruby on Rails')
     expect(page).to have_content('Um curso de Ruby on Rails')
     expect(page).to have_content('RUBYONRAILS')
+    expect(page).to have_content('Rubyson')
     expect(page).to have_content('R$ 30,00')
     expect(page).to have_content('22/12/2033')
     expect(page).to have_link('Voltar')
   end
   it 'and attributes cannot be blank' do
+    
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                    email: 'ruby@teste.com', 
+                                    bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
     fill_in 'Nome', with: ''
     fill_in 'Descrição', with: ''
+    select 'Rubyson', from: 'Professor'
     fill_in 'Código', with: ''
     fill_in 'Preço', with: ''
     fill_in 'Data limite de matrícula', with: ''
@@ -55,9 +59,13 @@ describe 'Admin registers courses' do
   end
 
   it 'and code must be unique' do
+
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                  email: 'ruby@teste.com', 
+                                  bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033', instructor_id: 1)
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'

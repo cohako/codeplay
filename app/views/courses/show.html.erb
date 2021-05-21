@@ -3,8 +3,9 @@
   <li> <%= @course.name %> </li>
   <li> <%= @course.description %> </li>
   <li> <%= @course.code %> </li>
-  <li> <%= number_to_currency_brl @course.price%> </li>
-  <li> <%= @course.date_to_metric%> </li>
+  <li> <%= number_to_currency @course.price%> </li>
+  <li> <%= @course.instructor.name%> </li>
+  <li> <%= l @course.enrollment_deadline%> </li>
 </ul>
 
 <p> <%= link_to 'Editar', edit_course_path(@course)%> </p>

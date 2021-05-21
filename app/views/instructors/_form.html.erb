@@ -1,8 +1,8 @@
-<% @instructor.errors.each do |error|%>
+<% instructor.errors.each do |error|%>
   <%= error.message%>
 <% end %>
 
-<%= form_with model: @instructor do |f| %>
+<%= form_with model: instructor do |f| %>
   <li> <%= f.label :name,'Nome' %> </li>
   <li> <%= f.text_field :name %> </li>
   <li> <%= f.label :email, 'Email'%> </li>
