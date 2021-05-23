@@ -1,0 +1,23 @@
+---
+pt-BR:
+  courses:
+    new:
+      title: 'Cadastrar um curso'
+    update:
+      success: 'Atualizado com sucesso'
+      fail: 'Não foi possível atualizar'
+    destroy:
+      success: 'Apagado com sucesso'
+      fail: 'Não foi possível apagar'
+  activerecord:
+    models:
+      course: 'Curso'
+    attributes:
+        name: 'Nome'
+        description: 'Descrição'
+        price: 'Preço'
+        code: 'Código'
+        enrollment_deadline: 'Data limite de matrícula'
+        banner: Banner
+        intructor_id: Instrutor(a)
+        instructor: Instrutor(a)

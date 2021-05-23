@@ -10,4 +10,5 @@
 
 <p> <%= link_to 'Editar', edit_course_path(@course)%> </p>
 <p> <%= link_to 'Apagar', course_path(@course), method: :delete %>
+<p> <%= link_to 'Cadastrar nova aula', new_course_lesson_path(@course) %> </p>
 <p> <%= link_to "Voltar", courses_path%> </p>

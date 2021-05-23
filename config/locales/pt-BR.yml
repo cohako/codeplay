@@ -110,9 +110,9 @@ pt-BR:
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
-      blank: não pode ficar em branco
+      blank: Não pode ficar em branco
       confirmation: não é igual a %{attribute}
-      empty: não pode ficar vazio
+      empty: Não pode ficar vazio
       equal_to: deve ser igual a %{count}
       even: deve ser par
       exclusion: não está disponível
@@ -129,7 +129,7 @@ pt-BR:
       other_than: deve ser diferente de %{count}
       present: deve ficar em branco
       required: é obrigatório(a)
-      taken: já está em uso
+      taken: Já está em uso
       too_long:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'

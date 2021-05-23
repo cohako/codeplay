@@ -19,7 +19,7 @@ describe 'Admin edit instructor' do
     fill_in 'Email', with: 'java@test.com'
     fill_in 'Descrição', with: 'Eu uso JOption'
     attach_file 'Foto de perfil', Rails.root.join('spec/fixture/test.jpg')
-    click_on 'Enviar'
+    click_on 'Atualizar Professor'
 
     expect(page).to have_content('Atualizado com sucesso')
     expect(page).to have_content('Javanaldo')

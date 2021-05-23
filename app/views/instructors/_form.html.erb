@@ -1,15 +1,18 @@
-<% instructor.errors.each do |error|%>
-  <%= error.message%>
-<% end %>
 
 <%= form_with model: instructor do |f| %>
-  <li> <%= f.label :name,'Nome' %> </li>
+  <li> <%= f.label :name %> </li>
   <li> <%= f.text_field :name %> </li>
-  <li> <%= f.label :email, 'Email'%> </li>
+  <% instructor.errors.full_messages_for(:name).each do |message| %>
+    <%= message %>
+  <% end %>
+  <li> <%= f.label :email %> </li>
   <li> <%= f.email_field :email %></li>
-  <li> <%= f.label :bio, 'Descrição' %></li>
+  <% instructor.errors.full_messages_for(:email).each do |message| %>
+    <%= message %>
+  <% end %>
+  <li> <%= f.label :bio%></li>
   <li> <%= f.text_area :bio %> </li>
   <li> <%= f.label :profile_picture, 'Foto de perfil'%>
   <li> <%= f.file_field :profile_picture%>
-  <li> <%= f.submit 'Enviar'%> </li>
+  <li> <%= f.submit %> </li>
 <% end %>

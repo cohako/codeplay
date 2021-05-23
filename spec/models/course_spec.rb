@@ -11,9 +11,9 @@ describe Course do
 
       course.valid?
 
-      expect(course.errors[:name]).to include('não pode ficar em branco')
-      expect(course.errors[:code]).to include('não pode ficar em branco')
-      expect(course.errors[:price]).to include('não pode ficar em branco')
+      expect(course.errors[:name]).to include('Não pode ficar em branco')
+      expect(course.errors[:code]).to include('Não pode ficar em branco')
+      expect(course.errors[:price]).to include('Não pode ficar em branco')
     end
 
     it 'code must be uniq' do
@@ -27,7 +27,7 @@ describe Course do
 
       course.valid?
 
-      expect(course.errors[:code]).to include('já está em uso')
+      expect(course.errors[:code]).to include('Já está em uso')
     end
   end
 end

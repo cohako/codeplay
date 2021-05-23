@@ -1,0 +1,19 @@
+---
+pt-BR:
+  instructors:
+    new:
+      title: 'Registrar um Professor'
+    update:
+      success: 'Atualizado com sucesso'
+      fail: 'Não foi possível atualizar'
+    destroy:
+      success: 'Apagado com sucesso'
+      fail: 'Não pode ser apagado, professor em utilização'
+  activerecord:
+    models:
+      instructor: 'Professor'
+    attributes:
+      instructor:
+        name: 'Nome'
+        email: 'Email'
+        bio: 'Descrição'

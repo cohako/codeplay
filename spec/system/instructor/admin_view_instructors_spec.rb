@@ -31,7 +31,7 @@ describe 'Admin view instructors' do
     fill_in 'Email', with: 'ruby@teste.com'
     fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
     attach_file 'Foto de perfil', Rails.root.join('spec/fixture/test.jpg')
-    click_on 'Enviar'
+    click_on 'Criar Professor'
 
     expect(page).to have_content('Rubyson')
     expect(page).to have_content('ruby@teste.com')

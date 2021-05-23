@@ -20,7 +20,7 @@ describe 'Admin registers instructor' do
     fill_in 'Email', with: 'railson@teste.com'
     fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
     attach_file 'Foto de perfil', Rails.root.join('spec/fixture/test.jpg')
-    click_on 'Enviar'
+    click_on 'Criar Professor'
     
 
     expect(page).to have_content('Railson')
@@ -40,7 +40,7 @@ describe 'Admin registers instructor' do
     fill_in 'Nome', with: ''
     fill_in 'Email', with: ''
     fill_in 'Descrição', with: ''
-    click_on 'Enviar'
+    click_on 'Criar Professor'
 
     expect(page).to have_content('Não pode ficar em branco', count: 2)
   end
@@ -54,7 +54,7 @@ describe 'Admin registers instructor' do
     click_on 'Professores'
     click_on 'Cadastrar novo professor'
     fill_in 'Email', with: 'r@mail.com'
-    click_on 'Enviar'
+    click_on 'Criar Professor'
 
     expect(page).to have_content('já está em uso')
 
