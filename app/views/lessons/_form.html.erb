@@ -1,3 +1,8 @@
-<%= form_with url: course_lessons_path(@course, @lesson), model: @lesson do |f| %>
-  <%= @course.name %>
+<%= form_with url: url, model: lesson do |f| %>
+  <%= 'Nome do curso: '+@course.name %>
+  <%= f.label :name, 'Nome'%>
+  <%= f.text_field :name %>
+  <%= f.label :content, 'Descrição'%>
+  <%= f.text_area :content %>
+  <%= f.submit%>
 <% end %>

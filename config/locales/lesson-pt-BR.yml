@@ -1,0 +1,20 @@
+---
+pt-BR:
+  lessons:
+    new:
+      title: 'Registrar um Professor'
+    create:
+      success: 'Criado com sucesso'
+    update:
+      success: 'Atualizado com sucesso'
+      fail: 'Não foi possível atualizar'
+    destroy:
+      success: 'Apagado com sucesso'
+      fail: 'Não pode ser apagado'
+  activerecord:
+    models:
+      lesson: 'Aula'
+    attributes:
+      lesson:
+        name: 'Nome'
+        content: 'Descrição'

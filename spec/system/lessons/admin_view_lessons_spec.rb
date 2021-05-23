@@ -16,11 +16,12 @@ describe 'Admin view lessons' do
     click_on 'Cadastrar nova aula'
 
     fill_in 'Nome', with: 'Introdução'
-    fill_in 'Tempo de aula', with: '10'
+    fill_in 'Descrição', with: 'é uma introdução'
     click_on 'Criar Aula'
-
-    expect(page).to have_content('Introcução')
-    expect(page).to have_content('10 minutos')
+    
+    expect(page).to have_content('Criado com sucesso')
+    expect(page).to have_content('Introdução')
+    expect(page).to have_content('é uma introdução')
 
   end
 end

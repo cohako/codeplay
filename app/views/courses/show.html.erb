@@ -11,4 +11,12 @@
 <p> <%= link_to 'Editar', edit_course_path(@course)%> </p>
 <p> <%= link_to 'Apagar', course_path(@course), method: :delete %>
 <p> <%= link_to 'Cadastrar nova aula', new_course_lesson_path(@course) %> </p>
+
+<% if @course.lessons.any?%>
+  <% @course.lessons.each do |lesson|%>
+    <p> <%= lesson.name%> </p>
+    <p> <%= lesson.content%> </p>
+    <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course)%> </p>
+  <% end %>
+<% end %>
 <p> <%= link_to "Voltar", courses_path%> </p>
