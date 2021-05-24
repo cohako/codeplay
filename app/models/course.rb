@@ -3,10 +3,9 @@ class Course < ApplicationRecord
   belongs_to :instructor
   has_many :lessons
   
-  validates_presence_of :name, :code, 
-                        :price
+  validates :name, :code, :price, presence: true
 
-  validates_uniqueness_of :code
+  validates :code, uniqueness: true
 
   
 end

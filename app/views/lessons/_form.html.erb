@@ -2,6 +2,9 @@
   <%= 'Nome do curso: '+@course.name %>
   <%= f.label :name, 'Nome'%>
   <%= f.text_field :name %>
+  <% lesson.errors.full_messages_for(:name).each do |message| %>
+    <%= message %>
+  <% end %>
   <%= f.label :content, 'Descrição'%>
   <%= f.text_area :content %>
   <%= f.submit%>

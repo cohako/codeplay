@@ -28,9 +28,8 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @lesson = Lesson.update(lesson_params)
-    if @lesson
-      flash[:notice]= t('.success')
+    if @lesson.update(lesson_params)
+      flash[:notice] = t('.success')
       redirect_to @course
     else
       render :new
@@ -45,9 +44,11 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(:name, :content)
   end
+
   def set_lesson
     @lesson = Lesson.find(params[:id])
   end
+
   def set_course
     @course = Course.find(params[:course_id])
   end

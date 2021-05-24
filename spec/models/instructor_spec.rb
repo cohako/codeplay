@@ -20,7 +20,7 @@ describe Course do
 
       instructor.valid?
 
-      expect(instructor.errors[:email]).to include('já está em uso')
+      expect(instructor.errors[:email]).to include('Já está em uso')
     end
   end
 end
