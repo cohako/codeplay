@@ -33,12 +33,11 @@ class InstructorsController < ApplicationController
   end
 
   def destroy
-    if @instructor.courses.blank?
-      @instructor.destroy
+    if @instructor.destroy
       flash[:notice] = t('.success')
       redirect_to instructors_path
     else
-      flash[:notice] = t('.fail')
+      # flash[:notice] = t('.fail')
       render :show
     end
   end

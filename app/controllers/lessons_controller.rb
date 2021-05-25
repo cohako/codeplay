@@ -1,12 +1,11 @@
 class LessonsController < ApplicationController
-  before_action :set_course, only: %i[new create edit update]
-  before_action :set_lesson, only: %i[edit update]
+  before_action :set_course, only: %i[new create edit update destroy]
+  before_action :set_lesson, only: %i[edit update destroy]
 
   def index
   end
 
   def show
-    @lessons = Lesson.all
   end
 
   def new
@@ -37,6 +36,12 @@ class LessonsController < ApplicationController
   end
   
   def destroy
+    if @lesson.destroy
+      flash[:notice] = t('.success')
+      redirect_to course_path(@course)
+    else
+      render :show, notice: t.('.fail')
+    end
   end
 
   private

@@ -11,6 +11,9 @@ pt-BR:
       fail: 'Não pode ser apagado, professor em utilização'
   activerecord:
     models:
+      courses:
+        one: 'Curso'
+        other: 'Cursos'
       instructor: 'Professor'
     attributes:
       instructor:

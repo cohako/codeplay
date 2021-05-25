@@ -1,4 +1,6 @@
-
+<% @instructor.errors.each do |message| %>
+    <%= message.message %>
+  <% end %>
 <%= @instructor.name %>
 <%= @instructor.email%>
 <%= @instructor.bio%>

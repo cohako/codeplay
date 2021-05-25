@@ -1,6 +1,10 @@
 ---
 pt-BR:
   activerecord:
+    models:
+      course:
+        one: 'Curso'
+        other: 'Cursos'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

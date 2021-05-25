@@ -11,13 +11,14 @@ pt-BR:
       fail: 'Não foi possível apagar'
   activerecord:
     models:
-      course: 'Curso'
+      courses:
+        one: 'Curso'
+        other: 'Cursos'
     attributes:
         name: 'Nome'
         description: 'Descrição'
         price: 'Preço'
         code: 'Código'
         enrollment_deadline: 'Data limite de matrícula'
-        banner: Banner
         intructor_id: Instrutor(a)
         instructor: Instrutor(a)

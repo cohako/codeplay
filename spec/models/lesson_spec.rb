@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Lesson, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Lesson do
+  context 'Validation' do
+    it 'Atribute cannot be blank' do
+      lesson = Lesson.new
+
+      lesson.valid?
+
+      expect(lesson.errors[:name]).to include('Não pode ficar em branco')
+    end
+  end
 end

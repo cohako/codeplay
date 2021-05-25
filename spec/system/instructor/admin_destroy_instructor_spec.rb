@@ -35,7 +35,7 @@ describe 'Admin erase instructor' do
     click_on 'Capybarason'
     click_on 'Apagar'
 
-    expect(page).to have_content('Não pode ser apagado, professor em utilização')
+    expect(page).to have_content('Não é possível excluir o registro pois existem courses dependentes')
 
   end
 end
