@@ -1,26 +1,42 @@
 # README
+### **CodePlay**
+
 This application is being developed for the TreinaDev project. We are learning Ruby on Rails, good practices and TDD.
 
 The TreinaDev project was created as a form of free training for people with or without prior knowledge in development.
 
-The project is sponsored by the companies: Konduto, Portal Solar, Rebase, SmartFit and Vindi.
-And the implementation is the responsibility of the company Campus Code.
+**The project is sponsored by the companies:** 
 
-To make this application work you must:
-Clone the repository:
-git clone git@github.com: cohako / codeplay.git
+- Konduto, 
+- Portal Solar, 
+- Rebase, 
+- SmartFit and 
+- Vindi.
 
-Enter the file folder:
-cd ~ / codeplay
+And the implementation is the responsibility of the company **Campus Code**.
 
-Type the command:
 
-bin / setup
+**To make this application work you must:**
 
-To run the server:
+- Clone the repository:
 
-rails server
+`git clone git@github.com: cohako / codeplay.git`
 
-Access:
 
-localhost: 3000 /
+- Enter the file folder:
+
+`cd ~ / codeplay`
+
+Run the command:
+
+- bin / setup
+
+**To run the server:**
+
+- Run the comand:
+
+`rails server`
+
+- Access:
+
+`localhost: 3000 /`
