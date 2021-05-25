@@ -27,9 +27,9 @@ And the implementation is the responsibility of the company **Campus Code**.
 
 `cd ~ / codeplay`
 
-Run the command:
+- Run the command:
 
-- bin / setup
+ `bin / setup`
 
 **To run the server:**
 
