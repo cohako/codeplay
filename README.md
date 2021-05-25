@@ -1,24 +1,26 @@
 # README
-#TODO: Update readme
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is being developed for the TreinaDev project. We are learning Ruby on Rails, good practices and TDD.
 
-Things you may want to cover:
+The TreinaDev project was created as a form of free training for people with or without prior knowledge in development.
 
-* Ruby version
+The project is sponsored by the companies: Konduto, Portal Solar, Rebase, SmartFit and Vindi.
+And the implementation is the responsibility of the company Campus Code.
 
-* System dependencies
+To make this application work you must:
+Clone the repository:
+git clone git@github.com: cohako / codeplay.git
 
-* Configuration
+Enter the file folder:
+cd ~ / codeplay
 
-* Database creation
+Type the command:
 
-* Database initialization
+bin / setup
 
-* How to run the test suite
+To run the server:
 
-* Services (job queues, cache servers, search engines, etc.)
+rails server
 
-* Deployment instructions
+Access:
 
-* ...
+localhost: 3000 /
