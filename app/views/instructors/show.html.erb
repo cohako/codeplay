@@ -2,11 +2,14 @@
     <%= message.message %>
   <% end %>
 <%= @instructor.name %>
-<%= @instructor.email%>
-<%= @instructor.bio%>
+<p> <%= @instructor.email%> </p>
+<p> <%= @instructor.bio%> </p>
 <% #TODO: teste de imagem padrão%>
-<p> <%= image_tag @instructor.profile_picture %> </p>
-
+<% if @instructor.profile_picture.persisted? %>
+  <p> <%= image_tag @instructor.profile_picture %> </p>
+<% else %>
+  <p> Nenhuma imagem cadastrada </p>
+<% end %>
 
 <p> <%= link_to 'Editar', edit_instructor_path(@instructor) %></p>
 <p> <%= link_to 'Apagar', instructor_path(@instructor), method: :delete %>

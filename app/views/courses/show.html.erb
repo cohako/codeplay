@@ -17,9 +17,9 @@
     <p> <%= lesson.name%> </p>
     <p> <%= lesson.content%> </p>
     <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course)%> </p>
-    <p> <%= link_to "Apagar #{lesson.name}", course_lesson_path(@course),method: :delete %>
+    <p> <%= link_to "Apagar #{lesson.name}", course_lesson_path(@course, lesson), method: :delete %>
   <% end %>
 <% else %>
   <p> Nenhuma aula cadastrada </p>
 <% end %>
-<p> <%= link_to "Voltar", courses_path%> </p>
+<p> <%= link_to "Voltar", courses_path, class: "btn btn-primary" %> </p>

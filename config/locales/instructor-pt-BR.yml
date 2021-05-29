@@ -17,6 +17,7 @@ pt-BR:
       instructor: 'Professor'
     attributes:
       instructor:
+        courses: 'Cursos'
         name: 'Nome'
         email: 'Email'
         bio: 'Descrição'

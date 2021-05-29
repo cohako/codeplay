@@ -55,7 +55,7 @@ describe 'Admin registers courses' do
     fill_in 'Data limite de matrícula', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Não pode ficar em branco', count: 3)
+    expect(page).to have_content('Não pode ficar em branco', count: 4)
   end
 
   it 'and code must be unique' do
