@@ -3,7 +3,7 @@ class Course < ApplicationRecord
   belongs_to :instructor
   has_many :lessons, dependent: :restrict_with_error
   
-  validates :name, :code, :price, :enrollment_deadline,presence: true
+  validates :name, :code, :price, :enrollment_deadline, presence: true
 
   validates :code, uniqueness: true
 

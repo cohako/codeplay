@@ -56,6 +56,7 @@ describe 'Admin registers courses' do
     click_on 'Enviar'
 
     expect(page).to have_content('Não pode ficar em branco', count: 4)
+    expect(page).to have_link( 'Cancelar', href: courses_path )
   end
 
   it 'and code must be unique' do
