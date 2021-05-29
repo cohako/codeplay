@@ -12,10 +12,10 @@ describe 'Admin registers instructor' do
   end
 
   it 'successfully' do
+
     visit root_path
     click_on 'Professores'
     click_on 'Cadastrar novo professor'
-
     fill_in 'Nome', with: 'Railson'
     fill_in 'Email', with: 'railson@teste.com'
     fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
@@ -36,17 +36,16 @@ describe 'Admin registers instructor' do
     visit root_path
     click_on 'Professores'
     click_on 'Cadastrar novo professor'
-
     fill_in 'Nome', with: ''
     fill_in 'Email', with: ''
     fill_in 'Descrição', with: ''
     click_on 'Criar Professor'
 
     expect(page).to have_content('Não pode ficar em branco', count: 2)
+    expect(page).to have_link('Cancelar' ,href: instructors_path)
   end
 
   it 'and email must be uniq' do
-
     Instructor.create!(name: 'Ruby', bio: 'Um curso de Ruby',
                       email: 'r@mail.com')
 
@@ -57,7 +56,6 @@ describe 'Admin registers instructor' do
     click_on 'Criar Professor'
 
     expect(page).to have_content('Já está em uso')
-
   end
 
 end

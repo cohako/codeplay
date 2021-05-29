@@ -33,7 +33,7 @@ describe 'Admin edit course' do
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
-    Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
+    course = Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
                   code: 'RAILSFOREST', price: 10,
                   enrollment_deadline: '10/11/2050', instructor: instructor)
 
@@ -51,5 +51,6 @@ describe 'Admin edit course' do
     click_on 'Enviar'
     
     expect(page).to have_content('Não pode ficar em branco', count: 4)
+    expect(page).to have_link('Cancelar' ,href: course_path(course))
   end
 end

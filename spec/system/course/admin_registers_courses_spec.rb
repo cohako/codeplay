@@ -7,6 +7,8 @@ describe 'Admin registers courses' do
 
     expect(page).to have_link('Registrar um Curso',
                               href: new_course_path)
+    expect(page).to have_link('Voltar',
+                              href: root_path)
   end
 
   it 'successfully' do
