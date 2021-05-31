@@ -1,0 +1,6 @@
+<%= current_user.email %>
+<%current_user.enrolls.each do |enroll|%>
+  <p> <%= enroll.course.name %> </p>
+<% end %>
+
+<%= link_to 'Editar', edit_user_registration_path%>

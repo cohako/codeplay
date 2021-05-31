@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :enrolls
   has_many :courses, through: :enrolls
-  
+  has_one :profile
 end

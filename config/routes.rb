@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  root to: "home#index"
 
   devise_for :users
   
   devise_scope :user do
+    get 'user', to: "user#show"
     get "signin", to: "devise/sessions#new", as: "signin"
   end
-  root to: "home#index"
+
+  resources :user do
+    resources :profile, only: %i[show new create edit update]
+  end
 
   resources :courses do
 

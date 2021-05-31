@@ -1,22 +1,29 @@
-# <% course.errors.each do |error|%>
-#   <%= error.message%>
-# <% end %>
-
-<%= form_with model: course do |f| %>
+<% course.errors.each do |error|%>
+  <%= error.message%>
+<% end %>
+<div class="jumbotron">
+<%= form_with model: course, class: 'form-group' do |f| %>
   <%= f.label :name %>
-  <%= f.text_area :name %>
+  <%= f.text_field :name, class: 'field form-control' %>
   <%= f.label :instructor_id, 'Professor'%>
   <%= f.collection_select :instructor_id, @instructors, :id, :name%>
-  <%= f.label :description, 'Descrição' %>
-  <%= f.text_area :description%>
+  <p> <%= f.label :description, 'Descrição' %> </p>
+  <%= f.text_area :description, class: 'field form-control' %>
   <%= f.label :code, 'Código' %>
-  <%= f.text_area :code%>
+  <%= f.text_field :code, class: 'field form-control' %>
   <%= f.label :price, 'Preço' %>
-  <%= f.text_area :price%>
+  <%= f.text_field :price, class: 'field form-control' %>
   <%= f.label :enrollment_deadline, 'Data limite de matrícula' %>
-  <%= f.date_field :enrollment_deadline %>
-  <%= f.label :draft %>
-  <%= f.check_box :draft%>
-  <%= f.submit 'Enviar'%>
+  <%= f.date_field :enrollment_deadline, class: 'field form-control' %>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <%= f.check_box :draft%>
+        <%= f.label :draft %>
+      </div>
+    </div>
+  </div>
+  <p> <%= f.submit 'Enviar', class: 'btn btn-primary'%> </p>
 <% end %>
-<p> <%= link_to 'Cancelar', back_track %> </p>
+<p> <%= link_to 'Cancelar', back_track, class: 'btn btn-danger'%> </p>
+</div>

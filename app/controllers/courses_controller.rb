@@ -54,6 +54,10 @@ class CoursesController < ApplicationController
     @enrolled = current_user.enrolls
   end
 
+  def search
+    
+  end
+
   private
 
   def set_course
