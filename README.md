@@ -1,7 +1,6 @@
-# README
+# *CodePlay*
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0f2e3d8c4ec540fbaea2a619c793cbad)](https://www.codacy.com/gh/cohako/codeplay/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cohako/codeplay&amp;utm_campaign=Badge_Grade)
-### **CodePlay**
 
 This application is being developed for the TreinaDev project. We are learning Ruby on Rails, good practices and TDD.
 
