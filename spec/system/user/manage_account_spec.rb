@@ -39,7 +39,7 @@ describe 'Visitor manage account' do
       
       visit root_path
       click_on 'Cadastrar'
-      fill_in :user_email, with: 'visitante@visita.com'
+      fill_in :user_email, with: user.email
       fill_in :user_password, with: '123456'
       fill_in :user_password_confirmation, with: '123456'
       within 'div#cadastrar' do

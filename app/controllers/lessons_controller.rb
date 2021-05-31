@@ -41,7 +41,7 @@ class LessonsController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to course_path(@course)
     else
-      render :show, notice: t.('.fail')
+      render :show, notice: t('.fail')
     end
   end
 

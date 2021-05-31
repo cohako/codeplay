@@ -10,7 +10,7 @@ describe 'Admin destroy lesson' do
                             code: 'RUBYBASIC', price: 10,
                             enrollment_deadline: '22/12/2033', 
                             instructor: instructor)
-    lesson = Lesson.create!(name: 'Introdução', 
+    Lesson.create!(name: 'Introdução', 
                             content: 'É uma introdução', 
                             course: course)
     

@@ -26,7 +26,7 @@ describe 'Admin registers courses' do
     click_on 'Registrar um Curso'
 
     fill_in 'Nome', with: 'Ruby on Rails'
-    select 'Rubyson', from: 'Professor'
+    select instructor.name, from: 'Professor'
     fill_in 'Descrição', with: 'Um curso de Ruby on Rails'
     fill_in 'Código', with: 'RUBYONRAILS'
     fill_in 'Preço', with: '30'

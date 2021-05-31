@@ -8,7 +8,7 @@ describe 'Admin erase course' do
                                     bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
                   code: 'RAILSFOREST', price: 10,
-                  enrollment_deadline: '10/11/2050', instructor_id: 1)
+                  enrollment_deadline: '10/11/2050', instructor: instructor)
 
     login_as(user)
     visit root_path

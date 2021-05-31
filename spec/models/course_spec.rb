@@ -4,9 +4,6 @@ describe Course do
   context 'validation' do
 
     it 'attributes cannot be blank' do
-      instructor = Instructor.create!(name: 'Rubyson', 
-        email: 'ruby@teste.com', 
-        bio: 'Sou uns instrutor que está aprendendo')
       course = Course.new
 
       course.valid?
