@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Admin destroy lesson' do
   it 'successfully' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
@@ -13,6 +14,7 @@ describe 'Admin destroy lesson' do
                             content: 'É uma introdução', 
                             course: course)
     
+    login_as(user)
     visit course_path(course)
     click_on 'Apagar Introdução'
     

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :courses do
+
     resources :lessons
+    
+    post 'enroll', on: :member
+    get 'enrolled', on: :collection
   end
 
   resources :instructors

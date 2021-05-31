@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   before_action :set_course, only: %i[new create edit update destroy]
   before_action :set_lesson, only: %i[edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
 
   def index
   end

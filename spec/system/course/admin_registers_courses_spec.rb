@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'Admin registers courses' do
   it 'from index page' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
+
+    login_as(user)
     visit root_path
     click_on 'Cursos'
 
@@ -12,10 +15,12 @@ describe 'Admin registers courses' do
   end
 
   it 'successfully' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
-
+    
+    login_as(user)
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -38,14 +43,14 @@ describe 'Admin registers courses' do
     expect(page).to have_link('Voltar')
   end
   it 'and attributes cannot be blank' do
-    
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
                    enrollment_deadline: '22/12/2033', instructor: instructor)
-
+    login_as(user)
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -62,14 +67,14 @@ describe 'Admin registers courses' do
   end
 
   it 'and code must be unique' do
-
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                   email: 'ruby@teste.com', 
                                   bio: 'Sou uns instrutor que está aprendendo')
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
                    enrollment_deadline: '22/12/2033', instructor: instructor)
-
+    login_as(user)
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -77,6 +82,33 @@ describe 'Admin registers courses' do
     click_on 'Enviar'
 
     expect(page).to have_content('Já está em uso')
+  end
+
+  it 'can be a draft' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
+    instructor = Instructor.create!(name: 'Rubyson', 
+                                  email: 'ruby@teste.com', 
+                                  bio: 'Sou uns instrutor que está aprendendo')
+
+    login_as user
+    visit courses_path
+    click_on 'Registrar um Curso'
+    fill_in 'Nome', with: 'Ruby on Rails'
+    select 'Rubyson', from: 'Professor'
+    page.check 'Rascunho'
+    fill_in 'Descrição', with: 'Um curso de Ruby on Rails'
+    fill_in 'Código', with: 'RUBYONRAILS'
+    fill_in 'Preço', with: '30'
+    fill_in 'Data limite de matrícula', with: '22/12/2033'
+    click_on 'Enviar'
+
+    expect(page).to have_content('Rascunho')
+    expect(page).to have_content('Ruby on Rails')
+    expect(page).to have_content('Um curso de Ruby on Rails')
+    expect(page).to have_content('RUBYONRAILS')
+    expect(page).to have_content('Rubyson')
+    expect(page).to have_content('R$ 30,00')
+    expect(page).to have_content('22/12/2033')
   end
 end
 

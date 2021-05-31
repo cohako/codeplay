@@ -3,6 +3,9 @@ require 'rails_helper'
 describe 'Admin registers instructor' do 
 
   it 'from index page' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
+
+    login_as(user)
     visit root_path
     click_on 'Professores'
 
@@ -12,7 +15,9 @@ describe 'Admin registers instructor' do
   end
 
   it 'successfully' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
 
+    login_as(user)
     visit root_path
     click_on 'Professores'
     click_on 'Cadastrar novo professor'
@@ -32,7 +37,9 @@ describe 'Admin registers instructor' do
   end
 
   it 'and attributes cannot be blank' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
 
+    login_as(user)
     visit root_path
     click_on 'Professores'
     click_on 'Cadastrar novo professor'
@@ -46,9 +53,10 @@ describe 'Admin registers instructor' do
   end
 
   it 'and email must be uniq' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
     Instructor.create!(name: 'Ruby', bio: 'Um curso de Ruby',
                       email: 'r@mail.com')
-
+    login_as(user)
     visit root_path
     click_on 'Professores'
     click_on 'Cadastrar novo professor'

@@ -10,7 +10,8 @@
 <% else %>
   <p> Nenhuma imagem cadastrada </p>
 <% end %>
-
-<p> <%= link_to 'Editar', edit_instructor_path(@instructor) %></p>
-<p> <%= link_to 'Apagar', instructor_path(@instructor), method: :delete %>
+<% if user_signed_in? %>
+  <p> <%= link_to 'Editar', edit_instructor_path(@instructor) %></p>
+  <p> <%= link_to 'Apagar', instructor_path(@instructor), method: :delete %>
+<% end %>
 <p> <%= link_to 'Voltar', instructors_path %>

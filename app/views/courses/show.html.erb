@@ -7,17 +7,20 @@
   <li> <%= @course.instructor.name%> </li>
   <li> <%= l @course.enrollment_deadline%> </li>
 </ul>
-
-<p> <%= link_to 'Editar', edit_course_path(@course)%> </p>
-<p> <%= link_to 'Apagar', course_path(@course), method: :delete %>
-<p> <%= link_to 'Cadastrar nova aula', new_course_lesson_path(@course) %> </p>
-
+<% if user_signed_in?%>
+  <p> <%= link_to 'Editar', edit_course_path(@course)%> </p>
+  <p> <%= link_to 'Apagar', course_path(@course), method: :delete %>
+  <p> <%= link_to 'Cadastrar nova aula', new_course_lesson_path(@course) %> </p>
+  <p> <%= link_to 'Comprar', enroll_course_path, method: :post%> </p>
+<% end%>
 <% if @course.lessons.any?%>
   <% @course.lessons.each do |lesson|%>
     <p> <%= lesson.name%> </p>
     <p> <%= lesson.content%> </p>
-    <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course)%> </p>
-    <p> <%= link_to "Apagar #{lesson.name}", course_lesson_path(@course, lesson), method: :delete %>
+    <% if user_signed_in?%>
+      <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course)%> </p>
+      <p> <%= link_to "Apagar #{lesson.name}", course_lesson_path(@course, lesson), method: :delete %>
+    <% end %>
   <% end %>
 <% else %>
   <p> Nenhuma aula cadastrada </p>

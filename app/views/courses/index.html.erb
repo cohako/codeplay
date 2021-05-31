@@ -1,9 +1,9 @@
 <%if @courses.empty? %>
   <%= "Nenhum curso disponível" %>
 <% end %>
-
-<%= link_to 'Registrar um Curso', new_course_path%>
-
+<% if user_signed_in?%>
+  <%= link_to 'Registrar um Curso', new_course_path%>
+<% end %>
 <% @courses.each do |course|%>
   <ul>
   <li> <%= link_to course.name, course%> </li>

@@ -1,0 +1,5 @@
+<% @enrolled.each do |enroll|%>
+  <%= enroll.course.name%>
+  <%= enroll.course.code%>
+  <%= enroll.course.instructor.name%>
+<% end %>

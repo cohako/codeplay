@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Admin edit course' do
   it 'successfully' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
@@ -9,6 +10,7 @@ describe 'Admin edit course' do
                   code: 'RAILSFOREST', price: 10,
                   enrollment_deadline: '10/11/2050', instructor: instructor)
 
+    login_as(user)
     visit root_path
     click_on 'Cursos'
     click_on 'Rails na floresta'
@@ -30,13 +32,15 @@ describe 'Admin edit course' do
   end
 
   it 'successfully' do
+    user = User.create(email: 'teste@teste.com', password: '123456')
     instructor = Instructor.create!(name: 'Rubyson', 
                                     email: 'ruby@teste.com', 
                                     bio: 'Sou uns instrutor que está aprendendo')
     course = Course.create!(name: 'Rails na floresta', description: 'Um curso de rails',
-                  code: 'RAILSFOREST', price: 10,
-                  enrollment_deadline: '10/11/2050', instructor: instructor)
-
+                            code: 'RAILSFOREST', price: 10,
+                            enrollment_deadline: '10/11/2050', instructor: instructor)
+    
+    login_as(user)
     visit root_path
     click_on 'Cursos'
     click_on 'Rails na floresta'

@@ -23,16 +23,12 @@ describe 'Admin view instructors' do
   end
 
   it 'and view details' do
-    visit root_path
-    click_on 'Professores'
-    click_on 'Cadastrar novo professor'
+    instructor = Instructor.create!(name: 'Rubyson', 
+                      email: 'ruby@teste.com', 
+                      bio: 'Sou uns instrutor que está aprendendo')
 
-    fill_in 'Nome', with: 'Rubyson'
-    fill_in 'Email', with: 'ruby@teste.com'
-    fill_in 'Descrição', with: 'Sou uns instrutor que está aprendendo'
-    attach_file 'Foto de perfil', Rails.root.join('spec/fixture/test.jpg')
-    click_on 'Criar Professor'
-
+    visit instructor_path(instructor)
+    
     expect(page).to have_content('Rubyson')
     expect(page).to have_content('ruby@teste.com')
     expect(page).to have_content('Sou uns instrutor que está aprendendo')

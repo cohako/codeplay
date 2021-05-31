@@ -49,6 +49,7 @@ describe 'Visitor manage account' do
       expect(page).to have_content('E-mail Já está em uso')
 
     end
+
     it 'password and confirmation must match' do
       visit root_path
       click_on 'Cadastrar'
@@ -78,6 +79,7 @@ describe 'Visitor manage account' do
 
     end
   end
+
   context 'Sign In' do
     it 'with email and password' do
 
@@ -107,7 +109,18 @@ describe 'Visitor manage account' do
       end
 
       expect(page).to have_content('E-mail ou senha inválidos.')
+    end
+  end
 
+  context 'Sign Out' do
+    it 'successfully' do
+      user = User.create!(email: 'visitante@visita.com', password: '123456')
+
+      login_as(user)
+      visit root_path
+      click_on 'SignOut'
+
+      expect(page).to have_content('Logout efetuado com sucesso.')
     end
   end
 end

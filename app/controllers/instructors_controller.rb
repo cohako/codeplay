@@ -1,5 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
   def index
     @instructors = Instructor.all
   end

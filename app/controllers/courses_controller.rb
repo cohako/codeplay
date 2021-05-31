@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[show edit update destroy]
+  before_action :set_course, only: %i[show edit update destroy enroll]
   before_action :set_instructors, only: %i[show new edit]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
 
   def index
     @courses = Course.all
@@ -42,6 +43,15 @@ class CoursesController < ApplicationController
       flash[:notice] = t('.fail')
       render :show
     end
+  end
+
+  def enroll
+    current_user.enrolls.create(course: @course, price: @course.price)
+    redirect_to enrolled_courses_path, notice: 'Curso comprado com sucesso'
+  end
+
+  def enrolled
+    @enrolled = current_user.enrolls
   end
 
   private

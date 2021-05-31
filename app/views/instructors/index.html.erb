@@ -7,6 +7,7 @@
   <li> <%= instructor.email %> </li>
   <li> <%= instructor.bio%> </li>
 <% end %>
-
-<p> <%= link_to 'Cadastrar novo professor', new_instructor_path %></p>
+<% if user_signed_in? %>
+  <p> <%= link_to 'Cadastrar novo professor', new_instructor_path %></p>
+<% end %>
 <P> <%= link_to 'Voltar', root_path%> </p>
