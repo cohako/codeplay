@@ -6,6 +6,9 @@
   <li> <%= number_to_currency @course.price%> </li>
   <li> <%= @course.instructor.name%> </li>
   <li> <%= l @course.enrollment_deadline%> </li>
+  <% if @course.draft %>
+    <p> Rascunho </p>
+  <% end %>
 </ul>
 <% if user_signed_in?%>
   <p> <%= link_to 'Editar', edit_course_path(@course)%> </p>

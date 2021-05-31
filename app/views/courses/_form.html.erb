@@ -3,7 +3,7 @@
 # <% end %>
 
 <%= form_with model: course do |f| %>
-  <%= f.label :name, 'Nome' %>
+  <%= f.label :name %>
   <%= f.text_area :name %>
   <%= f.label :instructor_id, 'Professor'%>
   <%= f.collection_select :instructor_id, @instructors, :id, :name%>
@@ -15,6 +15,8 @@
   <%= f.text_area :price%>
   <%= f.label :enrollment_deadline, 'Data limite de matrícula' %>
   <%= f.date_field :enrollment_deadline %>
+  <%= f.label :draft %>
+  <%= f.check_box :draft%>
   <%= f.submit 'Enviar'%>
 <% end %>
 <p> <%= link_to 'Cancelar', back_track %> </p>

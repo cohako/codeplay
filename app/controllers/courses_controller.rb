@@ -71,6 +71,7 @@ class CoursesController < ApplicationController
                   :code, 
                   :price, 
                   :enrollment_deadline, 
-                  :instructor_id)
+                  :instructor_id,
+                  :draft)
   end
 end

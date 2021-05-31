@@ -15,10 +15,12 @@ pt-BR:
         one: 'Curso'
         other: 'Cursos'
     attributes:
-        name: 'Nome'
-        description: 'Descrição'
-        price: 'Preço'
-        code: 'Código'
-        enrollment_deadline: 'Data limite de matrícula'
-        intructor_id: Instrutor(a)
-        instructor: Instrutor(a)
+        course:
+          name: 'Nome'
+          description: 'Descrição'
+          price: 'Preço'
+          code: 'Código'
+          enrollment_deadline: 'Data limite de matrícula'
+          draft: 'Rascunho'
+          intructor_id: Professor(a)
+          instructor: Professor(a)
