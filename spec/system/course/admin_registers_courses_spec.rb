@@ -94,7 +94,7 @@ describe 'Admin registers courses' do
     visit courses_path
     click_on 'Registrar um Curso'
     fill_in 'Nome', with: 'Ruby on Rails'
-    select 'Rubyson', from: 'Professor'
+    select instructor.name, from: 'Professor'
     page.check 'Rascunho'
     fill_in 'Descrição', with: 'Um curso de Ruby on Rails'
     fill_in 'Código', with: 'RUBYONRAILS'

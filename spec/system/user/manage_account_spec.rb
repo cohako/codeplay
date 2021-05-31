@@ -83,7 +83,7 @@ describe 'Visitor manage account' do
   context 'Sign In' do
     it 'with email and password' do
 
-      user = User.create!(email: 'visitante@visita.com', password: '123456')
+      User.create!(email: 'visitante@visita.com', password: '123456')
 
       visit root_path
       click_on 'Entrar'
