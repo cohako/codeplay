@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
   before_action :set_profile, only: %i[show  edit update]
-  before_action :set_user, only: %i[new create edit update]
+  before_action :set_user, only: %i[new show create edit update]
   def show
   end
 
