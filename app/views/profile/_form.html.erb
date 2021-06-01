@@ -1,0 +1,8 @@
+<%= form_with url: url, model: profile do |form| %>
+  <%="Usuário: #{current_user.email}"%>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :adress %>
+  <%= form.text_field %>
+  <%= f.submit %>
+  <% end %>

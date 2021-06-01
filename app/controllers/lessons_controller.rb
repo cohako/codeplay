@@ -32,7 +32,7 @@ class LessonsController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to @course
     else
-      render :new
+      render :edit
     end
   end
   

@@ -21,16 +21,16 @@ And the implementation is the responsibility of the company **Campus Code**.
 
 - Clone the repository:
 
-`git clone git@github.com: cohako / codeplay.git`
+`git clone git@github.com: cohako/codeplay.git`
 
 
 - Enter the file folder:
 
-`cd ~ / codeplay`
+`cd ~/codeplay`
 
 - Run the command:
 
- `bin / setup`
+ `bin/setup`
 
 **To run the server:**
 
@@ -40,4 +40,4 @@ And the implementation is the responsibility of the company **Campus Code**.
 
 - Access:
 
-`localhost: 3000 /`
+`localhost:3000/`

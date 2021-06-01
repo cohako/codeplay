@@ -7,7 +7,8 @@ describe 'User edits profile' do
     login_as(user)
     visit root_path
     click_on user.email
-    click_on 'Editar'
+    click_on 'Adicionar dados'
+    byebug
     fill_in :name, with: 'Testildo da tilva'
     fill_in :address, with: 'Quebrada, 420, osasco'
     click_on 'Enviar'

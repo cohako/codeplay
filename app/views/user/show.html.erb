@@ -3,4 +3,11 @@
   <p> <%= enroll.course.name %> </p>
 <% end %>
 
-<%= link_to 'Editar', edit_user_registration_path%>
+<%= link_to 'Trocar senha', edit_user_registration_path%>
+<% if @profile%>
+<%= @profile.name %>
+<%= @profile.adress%>
+<%= link_to 'Editar perfil', new_user_profile_path(current_user)%>
+<% else %>
+<%= link_to 'Adicionar dados', new_user_profile_path(current_user)%>
+<% end %>
