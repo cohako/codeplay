@@ -3,6 +3,9 @@ pt-BR:
   instructors:
     new:
       title: 'Registrar um Professor'
+    create:
+      success: 'Criado com sucesso'
+      fail: 'Não foi possível criar'
     update:
       success: 'Atualizado com sucesso'
       fail: 'Não foi possível atualizar'

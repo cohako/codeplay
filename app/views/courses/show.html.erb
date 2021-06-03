@@ -21,7 +21,7 @@
     <p> <%= lesson.name%> </p>
     <p> <%= lesson.content%> </p>
     <% if user_signed_in?%>
-      <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course)%> </p>
+      <p> <%= link_to 'Editar Aula', edit_course_lesson_path(@course) %> </p>
       <p> <%= link_to "Apagar #{lesson.name}", course_lesson_path(@course, lesson), method: :delete %>
     <% end %>
   <% end %>

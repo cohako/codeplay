@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get "signin", to: "devise/sessions#new", as: "signin"
   end
 
-  resources :user do
-    resources :profile, only: %i[show new create edit update]
+  resources :users do
+    resources :profiles
   end
 
   resources :courses do

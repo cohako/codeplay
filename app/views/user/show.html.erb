@@ -1,13 +1,17 @@
-<%= current_user.email %>
-<%current_user.enrolls.each do |enroll|%>
+<%= @user.email %>
+<% current_user.enrolls.each do |enroll| %>
   <p> <%= enroll.course.name %> </p>
 <% end %>
 
 <%= link_to 'Trocar senha', edit_user_registration_path%>
-<% if @profile%>
-<%= @profile.name %>
-<%= @profile.adress%>
-<%= link_to 'Editar perfil', new_user_profile_path(current_user)%>
+
+<% if @user.profile%>
+  <div>
+  <%= @user.profile.name %>
+  <%= @user.profile.adress%>
+  <%= link_to 'Editar dados', edit_user_profile_path(@user, @user.profile) %>
+  </div>
 <% else %>
-<%= link_to 'Adicionar dados', new_user_profile_path(current_user)%>
+  <%= 'Cadastre suas informações' %>
+  <%= link_to 'Adicionar dados', new_user_profile_path(@user)%>
 <% end %>
